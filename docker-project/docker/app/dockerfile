@@ -1,0 +1,18 @@
+FROM php:8.4-fpm-alpine
+
+WORKDIR /usr/share/nginx/html
+
+RUN apk add --no-cache \
+    libzip-dev \
+    libpng-dev \
+    sqlite-dev \
+    nodejs \
+    npm \
+    zip \
+    $PHPIZE_DEPS
+
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+COPY . .
+
+ENTRYPOINT ["/bin/sh", "-c", "./docker/app/entrypoint.sh"]
