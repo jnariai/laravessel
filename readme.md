@@ -31,6 +31,13 @@ The script:
 - Sets `APP_NAME` in `.env`
 - Runs `docker compose up -d` inside the project
 
+### One-liner (curl)
+Run the installer directly without cloning:
+
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/jnariai/laravessel/main/installer.sh)"
+```
+
 Access:
 - App: http://localhost
 - Vite dev server: http://localhost:5173
